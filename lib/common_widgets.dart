@@ -161,7 +161,7 @@ class PhotoTile extends StatelessWidget {
           children: [
             if (asset != null)
               Image.asset(asset!, fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => fallback)
+                  errorBuilder: (context, error, stackTrace) => fallback)
             else
               fallback,
             if (child != null) child!,

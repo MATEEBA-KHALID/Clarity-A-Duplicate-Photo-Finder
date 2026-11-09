@@ -177,7 +177,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.12),
+                color: Colors.white.withValues(alpha: 0.12),
                 shape: BoxShape.circle),
             child: const Icon(Icons.auto_awesome_outlined,
                 color: Colors.white, size: 22),
@@ -219,7 +219,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: _filter == i
-                        ? AppColors.primary.withOpacity(0.4)
+                        ? AppColors.primary.withValues(alpha: 0.4)
                         : AppColors.border,
                   ),
                 ),
@@ -247,7 +247,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 12,
               offset: const Offset(0, 4)),
         ],
@@ -321,7 +321,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                     decoration: BoxDecoration(
                       color: selected
                           ? AppColors.primary
-                          : Colors.white.withOpacity(0.6),
+                          : Colors.white.withValues(alpha: 0.6),
                       shape: BoxShape.circle,
                     ),
                     child: selected

@@ -251,7 +251,7 @@ class _ScanningScreenState extends State<ScanningScreen>
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.border.withOpacity(0.6)),
+        border: Border.all(color: AppColors.border.withValues(alpha: 0.6)),
       ),
       child: Row(
         children: [
@@ -292,7 +292,7 @@ class _RingPainter extends CustomPainter {
 
     // faint leaf-circle decoration behind the ring
     final deco = Paint()
-      ..color = AppColors.border.withOpacity(0.5)
+      ..color = AppColors.border.withValues(alpha: 0.5)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
     canvas.drawCircle(center.translate(70, 20), 70, deco);

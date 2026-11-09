@@ -130,7 +130,7 @@ class WelcomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.08),
+                      color: Colors.black.withValues(alpha: 0.08),
                       blurRadius: 18,
                       offset: const Offset(0, 6),
                     ),
@@ -159,35 +159,6 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _polaroid(double angle, double opacity) {
-    return Transform.rotate(
-      angle: angle * math.pi / 1.2,
-      child: Opacity(
-        opacity: opacity,
-        child: Container(
-          width: 112,
-          height: 92,
-          padding: const EdgeInsets.all(4),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.12),
-                blurRadius: 8,
-                offset: const Offset(0, 3),
-              ),
-            ],
-          ),
-          child: const PhotoTile(
-            asset: 'assets/images/coast.jpg',
-            radius: 0,
-            colors: [Color(0xFF7FA6A8), Color(0xFF3B6E6A), Color(0xFF8C8A5A)],
-          ),
         ),
       ),
     );

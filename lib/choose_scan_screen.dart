@@ -134,7 +134,7 @@ class _ChooseScanScreenState extends State<ChooseScanScreen> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.12),
+                color: Colors.white.withValues(alpha: 0.12),
                 shape: BoxShape.circle),
             child: const Icon(Icons.photo_library_outlined,
                 color: Colors.white, size: 22),
