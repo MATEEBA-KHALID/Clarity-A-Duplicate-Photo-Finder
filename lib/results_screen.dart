@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'app_theme.dart';
 import 'common_widgets.dart';
+import 'compare_photos_screen.dart';
 
 class _DuplicateSet {
   final String title;
@@ -79,7 +80,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
 
   int get _selectedCount =>
       _otherSelected +
-      _sets.fold(0, (s, set) => s + set.selected.where((e) => e).length);
+          _sets.fold(0, (s, set) => s + set.selected.where((e) => e).length);
 
   List<_DuplicateSet> get _visible {
     if (_filter == 1) return _sets.where((s) => s.exact).toList();
@@ -119,9 +120,13 @@ class _ResultsScreenState extends State<ResultsScreen> {
                   PrimaryButton(
                     label: 'Review $_selectedCount selected',
                     icon: Icons.arrow_forward,
-                    onTap: () {
-                      // TODO: navigate to the review / delete confirmation screen
-                    },
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) =>
+                            ComparePhotosScreen(removedCount: _selectedCount),
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 10),
                   Text('Best-quality photo kept in every set',
@@ -208,7 +213,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
               onTap: () => setState(() => _filter = i),
               child: Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                 decoration: BoxDecoration(
                   color: _filter == i ? AppColors.primaryLight : AppColors.card,
                   borderRadius: BorderRadius.circular(20),
@@ -222,7 +227,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                     style: GoogleFonts.inter(
                         fontSize: 12,
                         fontWeight:
-                            _filter == i ? FontWeight.w700 : FontWeight.w500,
+                        _filter == i ? FontWeight.w700 : FontWeight.w500,
                         color: _filter == i
                             ? AppColors.primary
                             : AppColors.textGrey)),
@@ -267,7 +272,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
               ),
               Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                 decoration: BoxDecoration(
                   color: AppColors.primaryLight,
                   borderRadius: BorderRadius.circular(14),
@@ -321,7 +326,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                     ),
                     child: selected
                         ? const Icon(Icons.check,
-                            size: 14, color: Colors.white)
+                        size: 14, color: Colors.white)
                         : null,
                   ),
                 ),
